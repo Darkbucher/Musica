@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="description" content="Interactive music player with visual effects" />
+    <meta name="keywords" content="music player, visualizer, audio effects" />
+    <meta name="author" content="Your Name" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="manifest" href="manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>MÚSICA</title>
+  </head>
+  <body>
+    <div class="loading"></div>
+    <canvas id="visualizer"></canvas>
+    
+    <div class="album-cover">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <!--1 -->
+          <div class="swiper-slide">
+            <img src="images/s.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank"></a>
+            </div>
+          </div>
+
+          <!--2 -->
+          <div class="swiper-slide">
+            <img src="images/v.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank"></a>
+            </div>
+          </div>
+
+          <!--3-->
+          <div class="swiper-slide">
+            <img src="images/glory.png" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank"></a>
+            </div>
+          </div>
+
+          <!--4-->
+          <div class="swiper-slide">
+            <img src="images/candy.png" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank"></a>
+            </div>
+          </div>
+
+          <!--5-->
+          <div class="swiper-slide">
+            <img src="images/fuckit.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank"></a>
+            </div>
+          </div>
+
+          <!--6-->
+          <div class="swiper-slide">
+            <img src="images/died once.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank"></a>
+            </div>
+          </div>
+
+          <!--7-->
+          <div class="swiper-slide">
+            <img src="images/bottom.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank"></a>
+            </div>
+          </div>
+
+          <!--8-->
+          <div class="swiper-slide">
+            <img src="images/img-2.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://www.youtube.com/watch?v=qEnfeG8uBRY&ab_channel=AliciaKeys-Topic" target="_blank">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <!--9-->
+          <div class="swiper-slide">
+            <img src="images/img-3.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://www.youtube.com/watch?v=h5oHhGlWKf0&ab_channel=MuzikPlay" target="_blank">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <!--10-->
+          <div class="swiper-slide">
+            <img src="images/3.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/Zf1d8SGuxfs?si=pV611xrBI6ahL9rG" target="_blank">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <!--11-->
+          <div class="swiper-slide">
+            <img src="images/2.jpg" alt="Album cover" />
+            <div class="overlay"></div>
+          </div>
+
+          <!--12-->
+          <div class="swiper-slide">
+            <img src="images/4.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://www.youtube.com/watch?v=9HDEHj2yzew&ab_channel=DuaLipa" target="_blank">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <!--13-->
+          <div class="swiper-slide">
+            <img src="images/img-7.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank">
+                <ion-icon name="logo-youtube"></ion-icon>
+              </a>
+            </div>
+          </div>
+
+          <!--14-->
+          <div class="swiper-slide">
+            <img src="images/1.jpg" alt="Album cover" />
+            <div class="overlay">
+              <a href="https://youtu.be/C_cpDd0WYTk?si=qRZTaX93yVYG4bm2" target="_blank"></a>
+            </div>
+          </div>
+
+          <!--15-->
+          <div class="swiper-slide">
+            <img src="images/nigga.png" alt="Album cover" />
+            <div class="overlay"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="music-player">
+      <h1>Title</h1>
+      <p>Song Name</p>
+
+      <audio id="song" preload="metadata">
+        <source src="song-list/GLORY.mp3" type="audio/mpeg" />
+        Your browser does not support the audio element.
+      </audio>
+
+      <input type="range" value="0" id="progress" />
+      <div class="time-display">
+        <span id="current-time">0:00</span>
+        <span id="total-time">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button class="backward">
+          <i class="fa-solid fa-backward"></i>
+        </button>
+        <button class="play-pause-btn">
+          <i class="fa-solid fa-play" id="controlIcon"></i>
+        </button>
+        <button class="forward">
+          <i class="fa-solid fa-forward"></i>
+        </button>
+      </div>
+    </div>
+
+    <button id="effect-toggle" class="effect-toggle">
+      <i class="fa-solid fa-wand-magic-sparkles"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

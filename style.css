@@ -1,0 +1,555 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600&display=swap"); */
+
+:root {
+  --primary-clr: rgba(228, 228, 229, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  background: url(images/bg.jpg);
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: slidein 120s forwards infinite alternate;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes slidein {
+  0%,
+  100% {
+    background-position: 20% 0%;
+    background-size: 3400px;
+  }
+  50% {
+    background-position: 100% 0%;
+    background-size: 2400px;
+  }
+}
+
+.album-cover {
+  width: 90%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+.swiper {
+  width: 100%;
+  padding: 40px 0 100px;
+}
+
+.swiper-slide {
+  position: relative;
+  max-width: 200px;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+.swiper-slide img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  -webkit-box-reflect: below -8px linear-gradient(transparent, transparent, rgb(0 0 0 / 19%)); /* Adjusting gradient and offset */
+  transform-origin: center;
+  transform: perspective(800px);
+  transition: 0.3s ease-out;
+}
+
+
+.swiper-slide-active .overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 98%;
+  background-color:#1b1b1b48;
+  filter:saturate(5);
+  border-radius: inherit;
+  opacity: 0;
+  transition: all 0.4s linear;
+}
+
+.swiper-slide:hover .overlay {
+  opacity: 1;
+}
+
+.swiper-slide .overlay ion-icon {
+  opacity: 0;
+}
+
+.swiper-slide-active:hover .overlay ion-icon {
+  font-size: 4rem;
+  color: #eb0b0b;
+  opacity: 1;
+  cursor: pointer;
+}
+
+/* Music Player */
+
+.music-player {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-clr);
+  width: 380px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  position: relative;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+.music-player h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.music-player p {
+  font-size: 1rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+/* Music Player Progress */
+
+#progress {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 7px;
+  background: rgba(163, 162, 164, 0.4);
+  border-radius: 4px;
+  margin: 32px 0 24px;
+  cursor: pointer;
+}
+
+#progress::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  background: rgba(163, 162, 164, 0.9);
+  width: 16px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  outline: 4px solid var(--primary-clr);
+  box-shadow: 0 6px 10px rgba(5, 36, 28, 0.3);
+}
+
+.time-display {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--primary-clr);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* Music Player Controls */
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  aspect-ratio: 1/1;
+  margin: 20px;
+  
+  background: rgba(161, 161, 161, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(75, 44, 162, 0.556);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: var(--primary-clr);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  outline: 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s linear;
+  position: relative; /* Added for glow effect positioning */
+}
+
+.controls button:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #9500ff, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(15px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 50%; /* Ensure it matches the button's border-radius */
+}
+
+.controls button:active {
+  color: #000;
+}
+
+.controls button:active:after {
+  background: transparent;
+}
+
+.controls button:hover:before {
+  opacity: 1;
+}
+
+.controls button:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 50%; /* Ensure it matches the button's border-radius */
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.controls button:is(:hover, :focus-visible) {
+  transform: scale(0.95);
+}
+
+.controls button:nth-child(2) {
+  transform: scale(1.3);
+}
+
+.controls button:nth-child(2):is(:hover, :focus-visible) {
+  transform: scale(1.25);
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  /* Only keep touch-friendly progress bar */
+  #progress {
+    height: 10px;
+    margin: 25px 0 20px;
+  }
+
+  #progress::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+  }
+
+  .controls button {
+    width: 60px;
+    height: 60px;
+    margin: 15px;
+  }
+
+  .effect-toggle {
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    right: 30px;
+  }
+
+  .music-player {
+    width: 90%;
+    max-width: 380px;
+  }
+
+  .swiper-slide {
+    max-width: 150px;
+  }
+}
+
+/* Prevent text selection */
+.music-player, .controls button, .swiper-slide {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Improve touch targets */
+.controls button, .swiper-slide {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Smooth scrolling for iOS */
+.playlist-songs {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize animations for mobile */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .effect-toggle {
+    animation: none;
+  }
+}
+
+#visualizer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.7;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+
+.effect-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.411);
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  animation: blink 2s infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform;
+}
+
+.effect-toggle:hover {
+  background: rgba(255, 0, 0, 0.3);
+  transform: scale(1.1);
+}
+
+.effect-toggle:active {
+  transform: scale(0.95);
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  }
+}
+
+/* Add loading state styles */
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loading::after {
+  content: '';
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #ff0000;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Improve accessibility */
+.controls button:focus-visible,
+.effect-toggle:focus-visible {
+  outline: 2px solid #ff0000;
+  outline-offset: 2px;
+}
+
+/* Add reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .effect-toggle {
+    animation: none;
+  }
+}
+
+/* Optimize background rendering */
+body {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve visualizer performance */
+#visualizer {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Add dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-clr: rgba(255, 248, 248, 0.886);
+  }
+  
+  .music-player {
+    background: rgba(37, 37, 37, 0.468);
+  }
+  
+  .controls button {
+    background: rgba(255, 255, 255, 0.11);
+  }
+}
+
+/* Improve button hover states */
+.controls button:hover,
+.effect-toggle:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.controls button:active,
+.effect-toggle:active {
+  transform: scale(0.95);
+}
+
+/* Add smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add direct font-face declarations */
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/nunito/v25/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3ig.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/nunito/v25/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3ig.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/nunito/v25/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3ig.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/nunito/v25/XRXI3I6Li01BKofiOc5wtlZ2di8HDLshdTQ3ig.woff2) format('woff2');
+}
+
+/* Add print styles */
+@media print {
+  .music-player,
+  .effect-toggle,
+  #visualizer {
+    display: none;
+  }
+  
+  body {
+    background: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #visualizer {
+    opacity: 0.8;
+    transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+  }
+  
+  .music-player {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+}
