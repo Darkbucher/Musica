@@ -1,4 +1,4 @@
-# 🎵 Dynamic Music Player
+# 🎵 MUSICA PLAYER
 
 <div align="center">
   <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=500&size=40&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=600&height=100&lines=Dynamic+Music+Player;Interactive+Visualizer;Responsive+Design" alt="Dynamic Music Player" />
