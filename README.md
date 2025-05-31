@@ -62,55 +62,6 @@
 - 🎮 Manual effect toggle button
 - 🎨 Customizable visualizer settings
 
-## 📱 Mobile Optimizations
-
-- Optimized canvas rendering
-- Touch-friendly controls
-- Responsive design
-- Performance enhancements
-- Orientation change support
-- Reduced motion support
-
-## 🎨 Visualizer Effects
-
-```javascript
-// Example of corner flash effect
-const gradient = ctx.createRadialGradient(
-  corner.x, corner.y, 0,
-  corner.x, corner.y, canvas.width * 0.7
-);
-
-gradient.addColorStop(0, `rgba(255, 50, 150, ${intensity * 0.9})`);    // Deep pink-magenta
-gradient.addColorStop(0.25, `rgba(75, 200, 255, ${intensity * 0.4})`); // Bright sky blue
-gradient.addColorStop(0.5, `rgba(150, 50, 255, ${intensity * 0.2})`);  // Vivid medium purple
-gradient.addColorStop(0.75, `rgba(50, 0, 100, ${intensity * 0.6})`);   // Deep violet
-gradient.addColorStop(1, `rgba(0, 0, 0, 0)`);                          // Transparent
-```
-
-## 🎮 Controls
-
-- Play/Pause: Click the center button
-- Next/Previous: Use arrow buttons
-- Effect Toggle: Click the red button in the corner
-- Progress: Drag the progress bar
-- Mobile: Swipe left/right for next/previous
-
-## 📱 Mobile Support
-
-<div align="center">
-  <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" alt="iOS" />
-  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" />
-  <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white" alt="Windows" />
-</div>
-
-## 🎨 Customization
-
-The visualizer can be customized by modifying:
-- Effect intensities
-- Color schemes
-- Animation speeds
-- Particle sizes
-- Flash patterns
 
 ## 📈 Performance
 
@@ -120,39 +71,10 @@ The visualizer can be customized by modifying:
 - Reduced memory usage
 - Smooth animations
 
-## 🎵 Music Player Features
-
-- Play/Pause control
-- Next/Previous track
-- Progress bar
-- Time display
-- Volume control
-- Playlist support
-
-## 🔧 Installation
-
-1. Clone the repository
-```bash
-git clone https://github.com/yourusername/dynamic-music-player.git
-```
-
-2. Open `index.html` in your browser
-```bash
-cd dynamic-music-player
-open index.html
-```
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👥 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
-
-## ⭐ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yourusername/dynamic-music-player&type=Date)](https://star-history.com/#yourusername/dynamic-music-player&Date)
 
 ---
 
